@@ -37,3 +37,6 @@ No_tocaron_en_gardel = (π codigoB (Escenario ⨝ Recital ⨝ Banda)) - (π codi
 
 8.
 π nombreBanda, genero_musical, anio_creacion (π codigoB, nombreBanda, genero_musical, anio_creacion (Banda ⨝ (σ fecha ≥ date('2019-01-01') ∧ fecha ≤ date('2019-12-31') (Recital))) ∩ (π codigoB, nombreBanda, genero_musical, anio_creacion(Banda ⨝ (σ fecha ≥ date('2020-01-01') ∧ fecha ≤ date('2020-12-31') (Recital)))))
+
+9.
+π nombreBanda, fecha, hora, nombre_escenario, ubicacion (Banda ⨝ (σ fecha = date('2019-12-04') (Recital)) ⨝ Escenario)
