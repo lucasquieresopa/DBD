@@ -1,0 +1,4 @@
+Garcias = σ apellido = 'Garcia' ( Integrante )
+Anterior_A_2005 = σ fecha_nacimiento ≤ date('2005-01-01') (Integrante)
+Rockeros = ( ( σ genero_musical = 'rockandroll' ( Banda ) ) ⨝ ( Integrante ) )
+π DNI, nombre, apellido, email, fecha_nacimiento ( ( ( Garcias ) ⨝ ( Anterior_A_2005 ) ) ⨝ ( Rockeros ) )
