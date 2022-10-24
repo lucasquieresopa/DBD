@@ -1,4 +1,9 @@
+1.
 Garcias = σ apellido = 'Garcia' ( Integrante )
 Anterior_A_2005 = σ fecha_nacimiento ≤ date('2005-01-01') (Integrante)
 Rockeros = ( ( σ genero_musical = 'rockandroll' ( Banda ) ) ⨝ ( Integrante ) )
 π DNI, nombre, apellido, email, fecha_nacimiento ( ( ( Garcias ) ⨝ ( Anterior_A_2005 ) ) ⨝ ( Rockeros ) )
+
+2.
+En_2019 = π nroEscenario ( σ fecha ≥ date('2019-01-01') ∧ fecha ≤ date('2019-12-31') ( Recital ) ) ⨝ Escenario
+π nombre_escenario, ubicacion, descripcion ( ( Recital ⨝ Escenario ) - ( Recital ⨝ Escenario ⨝ En_2019 ) )
