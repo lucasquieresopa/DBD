@@ -31,3 +31,9 @@ Tocaron_en_cerati = π codigoB (Banda ⨝ Recital ⨝ (σ nombre_escenario = 'Gu
 No_tocaron_en_gardel = (π codigoB (Escenario ⨝ Recital ⨝ Banda)) - (π codigoB ((σ nombre_escenario = 'Carlos Gardel' (Escenario)) ⨝ Recital ⨝ Banda))
 
 π DNI, nombre, apellido, direccion, email ((Tocaron_en_cerati ∩ No_tocaron_en_gardel) ⨝ Integrante)
+
+7.
+δ anio_creacion = '1983' (σ nombreBanda = 'Ratones Paranoicos' (Banda))
+
+8.
+π nombreBanda, genero_musical, anio_creacion (π codigoB, nombreBanda, genero_musical, anio_creacion (Banda ⨝ (σ fecha ≥ date('2019-01-01') ∧ fecha ≤ date('2019-12-31') (Recital))) ∩ (π codigoB, nombreBanda, genero_musical, anio_creacion(Banda ⨝ (σ fecha ≥ date('2020-01-01') ∧ fecha ≤ date('2020-12-31') (Recital)))))
