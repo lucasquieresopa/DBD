@@ -24,3 +24,10 @@ Recitales_2020 = π nroEscenario, nombre_escenario, ubicacion, descripcion ((σ 
 
 5.
 π DNI, nombre, apellido, direccion, email ((σ fecha_nacimiento ≥ date('2000-01-01') ∧ fecha_nacimiento ≤ date('2005-12-31') (Integrante)) ⨝ (σ genero_musical = 'pop' (Banda)) ⨝ (σ fecha ≥ date('2020-01-01') ∧ fecha ≤ date('2020-12-31') (Recital)))
+
+6.
+Tocaron_en_cerati = π codigoB (Banda ⨝ Recital ⨝ (σ nombre_escenario = 'Gustavo Cerati' (Escenario)))
+
+No_tocaron_en_gardel = (π codigoB (Escenario ⨝ Recital ⨝ Banda)) - (π codigoB ((σ nombre_escenario = 'Carlos Gardel' (Escenario)) ⨝ Recital ⨝ Banda))
+
+π DNI, nombre, apellido, direccion, email ((Tocaron_en_cerati ∩ No_tocaron_en_gardel) ⨝ Integrante)
