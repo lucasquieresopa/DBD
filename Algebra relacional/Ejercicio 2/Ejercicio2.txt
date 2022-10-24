@@ -21,3 +21,6 @@ Recitales_2020 = π nroEscenario, nombre_escenario, ubicacion, descripcion ((σ 
 
 4.
 π nombreBanda, genero_musical, anio_creacion ((Banda) ⨝ (σ fecha ≥ date('2019-01-01') ∧ fecha ≤ date('2019-12-31') (Recital)) ⨝ (σ cubierto = 'true' (Escenario)))
+
+5.
+π DNI, nombre, apellido, direccion, email ((σ fecha_nacimiento ≥ date('2000-01-01') ∧ fecha_nacimiento ≤ date('2005-12-31') (Integrante)) ⨝ (σ genero_musical = 'pop' (Banda)) ⨝ (σ fecha ≥ date('2020-01-01') ∧ fecha ≤ date('2020-12-31') (Recital)))
