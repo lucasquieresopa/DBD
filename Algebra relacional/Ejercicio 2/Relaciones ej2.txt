@@ -5,7 +5,7 @@ codigoB:number, nombreBanda:string, genero_musical:string, anio_creacion:number
 1, 'BandaA', 'rockandroll', 2000
 2, 'BandaB', 'folklore', 2021
 3, 'BandaC', 'rockandroll', 2012
-4, 'BandaD', 'cumbia', 1999
+4, 'BandaD', 'pop', 1999
 }
 
 Integrante = {
@@ -13,6 +13,8 @@ DNI:number, nombre:string, apellido:string, direccion:string, email:string, fech
 1111111, 'Pedro', 'Garcia', 'aaa', 'aaa', 1990-01-01, 1
 2222222, 'Geronimo', 'Garcia', 'aaa', 'aaa', 2006-01-01, 1
 3333333, 'Javier', 'Garcia', 'aaa', 'aaa', 2002-01-01, 2
+444444, Pepito, Lopez, aaa, aaa, 2004-11-24, 4
+555555, Juan, Martinez, aaa, bbb, 2006-10-11, 4
 }
 
 Escenario = {
@@ -29,4 +31,5 @@ fecha:date, hora:string, nroEscenario:number, codigoB:number
 2020-01-01, '22:00', 2, 2
 2012-06-09, '15:00', 3, 4
 2019-02-02, '18:00', 1, 3
+2020-03-03, '20:00', 3, 4
 }
