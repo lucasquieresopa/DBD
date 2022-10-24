@@ -20,3 +20,4 @@ Recitales_2020 = π nroEscenario, nombre_escenario, ubicacion, descripcion ((σ 
 π nombre_escenario, ubicacion, descripcion (Recitales_2020 ∪ Recitales_RnR)
 
 4.
+π nombreBanda, genero_musical, anio_creacion ((Banda) ⨝ (σ fecha ≥ date('2019-01-01') ∧ fecha ≤ date('2019-12-31') (Recital)) ⨝ (σ cubierto = 'true' (Escenario)))

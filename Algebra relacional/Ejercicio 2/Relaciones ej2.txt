@@ -17,9 +17,9 @@ DNI:number, nombre:string, apellido:string, direccion:string, email:string, fech
 
 Escenario = {
 nroEscenario:number, nombre_escenario:string, ubicacion:string, cubierto:string, m2:number, descripcion:string
-1, America, Paraguay, no, 100, barbaro
-2, Centenario, Chile, si, 200, espectacular
-3, Surubi, Nicaragua, si, 50, 'una cagada'
+1, America, Paraguay, false, 100, barbaro
+2, Centenario, Chile, true, 200, espectacular
+3, Surubi, Nicaragua, true, 50, 'una cagada'
 }
 
 Recital = {
