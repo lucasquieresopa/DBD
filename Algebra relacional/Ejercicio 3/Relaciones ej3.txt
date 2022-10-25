@@ -1,0 +1,32 @@
+group: ejercicio3
+
+Agencia = {
+razon_social:string, direccion:string, telef:string, email:string
+AgenciaA, aaa, 000, aaa
+AgenciaB, abr, 000, aaa
+AgenciaC, aac, 000, aaa
+AgenciaD, aad, 000, aaa
+}
+Ciudad = {
+CODIGOPOSTAL:number, nombreCiudad:string, anioCreacion:date
+1000, Lincoln, 1900-01-01
+2000, 'La Plata', 1880-02-03
+3000, Pehuajo, 1903-09-03
+4000, Bariloche, 1856-09-17
+}
+Cliente = {
+DNI:number, nombre:string, apellido:string, telefono:string, direccion:string
+54343543, Juancho, Gimenez, 000, abc
+67637558, David, Guerrero, 000, abd
+64734569, Earling, Haaland, 000, abe
+22222222, Totito, Lopez, 000, xzx
+}
+Viaje = {
+FECHA:date, HORA:string, DNI:number, cpOrigen:number, cpDestino:number, razon_social:string, descripcion:string
+2018-02-09, 19, 54343543, 1000, 2000, AgenciaA, '-'
+2019-04-22, 16, 54343543, 2000, 1000, AgenciaB, '-'
+2019-06-29, 11, 67637558, 1000, 3000, AgenciaA, '-'
+2020-11-12, 20, 67637558, 3000, 2000, AgenciaC, '-'
+2020-12-11, 22, 64734569, 1000, 1000, AgenciaD, '-'
+2020-05-01, 23, 22222222, 4000, 2000, AgenciaB, '-'
+}

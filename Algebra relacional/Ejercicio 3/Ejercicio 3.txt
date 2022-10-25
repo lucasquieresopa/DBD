@@ -1,0 +1,29 @@
+1.
+Viaje <= Viaje - (σ dni = 25326992 (Viaje)
+
+2.
+Cliente - (π DNI, nombre, apellido, telefono, direccion (Cliente ⨝ (σ cpOrigen < cpDestino ∨ cpOrigen > cpDestino (Viaje))))
+
+3.
+Agencia - (π RAZON_SOCIAL, direccion, telef, email (σ Agencia.RAZON_SOCIAL = Viaje.razon_social (Agencia x (σ DNI = 22222222 ∧ FECHA > date('2020-01-01') ∧ FECHA < date('2020-07-01') (Viaje)))))
+
+4.
+(π razon_social, direccion, telef, email (Agencia ⨝ (σ FECHA ≥ date('2019-01-01') ∧ FECHA ≤ date('2019-12-31') (Viaje))) - (π razon_social, direccion, telef, email (Agencia ⨝ (σ FECHA ≥ date('2020-01-01') ∧ FECHA ≤ date('2020-12-31') (Viaje)))))
+
+5.
+Agencia <= Agencia ∪ {(RazonA, direccion1, dniA, telefono1)}
+
+6.
+(π DNI, nombre, apellido, telefono, direccion (Cliente ⨝ (σ Viaje.cpDestino = Ciudad.CODIGOPOSTAL (σ nombreCiudad = 'Lincoln' (Ciudad x Viaje)))) - (π DNI, nombre, apellido, telefono, direccion (Cliente ⨝ (σ Viaje.cpOrigen = Ciudad.CODIGOPOSTAL (σ Ciudad.nombreCiudad = 'La Plata' (Ciudad x Viaje))))))
+
+7.
+(π DNI (Cliente) ⨝ (π DNI, razon_social (Viaje)) ÷ (π razon_social (Agencia)) ⨝ Cliente)
+
+8.
+π CODIGOPOSTAL, nombreCiudad, anioCreacion (Ciudad - (π CODIGOPOSTAL, nombreCiudad, anioCreacion (σ Ciudad.CODIGOPOSTAL = Viaje.cpDestino (Ciudad x (σ FECHA ≥ date('2020-01-01') ∨ FECHA ≤ date('2020-31-21') (Viaje))))))
+
+9.
+(π razon_social, direccion, telef, email (Agencia ⨝ (σ FECHA ≥ date('2020-01-01') ∧ FECHA ≤ date('2020-31-12') (Viaje)))) ∪ (σ direccion = 'General Pinto' (Agencia))
+
+10.
+Cliente <= δ telefono = 221-4400345 (σ DNI = 2789655 (Cliente))
