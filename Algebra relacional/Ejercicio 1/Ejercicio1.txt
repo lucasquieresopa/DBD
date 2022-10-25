@@ -21,3 +21,9 @@
 
 8.
 π nombre, apellido, dni, telefono, direccion ((π idCliente, nombre, apellido, direccion, dni, telefono (Cliente ⨝ Factura ⨝ Detalle ⨝ (σ nombreP = 'Fideos tirabuzon' (Producto)))) - (π idCliente, nombre, apellido, direccion, dni, telefono (Cliente ⨝ Factura ⨝ Detalle ⨝ (σ nombreP = 'Suplementos vitaminicos' (Producto)))))
+
+9.
+π nroTicket, total, fecha, hora, dni (Cliente ⨝ Factura ⨝ Detalle ⨝ (σ nombreP = 'Maceta' (Producto)))
+
+10.
+Producto ∪ {(1000, 'mi producto', 10000, 'producto Z', 1000)}
