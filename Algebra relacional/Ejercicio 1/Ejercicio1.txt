@@ -1,0 +1,5 @@
+1.
+π nombre, apellido, dni, telefono, direccion (σ dni > 22222222 (Cliente))
+
+2.
+π nombre, apellido, dni, telefono, direccion ((σ dni > 22222222 (Cliente)) ⨝ (σ total ≤ 100000 (Factura)))

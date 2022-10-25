@@ -1,0 +1,40 @@
+group: ejercicio1
+
+Cliente = {
+idCliente:number, nombre:string, apellido:string, dni:string telefono:string, direccion:string
+1, Jose, 'San Martin', 4123532, 3414213, aaa
+2, Manuel, Belgrano, 738744, 64534, bbb
+3, Escalada, Remedios, 547335, 25524, ccc
+}
+
+Factura = {
+nroTicket:number, total:number, fecha:date, hora:string, idCliente:number
+534, 8755, 1998-01-02, 16, 1
+7746, 73687, 2020-02-20, 16, 1
+576, 5876, 2020-06-12, 19, 2
+4654, 57, 1802-25-05, 11, 2
+54358, 5735, 2020-04-30, 23, 3
+}
+
+Detalle = {
+nroTicket:number, idProducto:number, cantidad:number, preciounitario:number
+534, 1, 2, 60
+534, 3, 6, 25
+534, 5, 2, 100
+7746, 1, 34, 20
+7746, 2, 6, 11
+576, 3, 45, 50
+4654, 3, 23, 80
+4654, 5, 12, 33
+54358, 2, 33, 60
+}
+
+Producto = {
+idProducto, descripcion, precio, nombreP, stock
+1, '-', 20, Maceta, 100
+2, '-', 55, 'Suplementos vitaminicos, 22
+3, '-', 11, 'Fideos tirabuzon, 200
+4, '-', 44, leche, 101
+5, '-', 200, 'Discos de arjona', 1000
+6, '-', 10, 'figuritas del mundial', 0
+}
