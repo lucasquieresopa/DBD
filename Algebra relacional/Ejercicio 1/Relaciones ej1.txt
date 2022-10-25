@@ -13,7 +13,7 @@ nroTicket:number, total:number, fecha:date, hora:string, idCliente:number
 7746, 73687, 2020-02-20, 16, 1
 576, 5876, 2020-06-12, 19, 2
 4654, 57, 1802-25-05, 11, 2
-54358, 5735, 2020-04-30, 23, 3
+54358, 5735, 2022-04-30, 23, 3
 }
 
 Detalle = {
@@ -32,8 +32,8 @@ nroTicket:number, idProducto:number, cantidad:number, preciounitario:number
 Producto = {
 idProducto, descripcion, precio, nombreP, stock
 1, '-', 20, Maceta, 100
-2, '-', 55, 'Suplementos vitaminicos, 22
-3, '-', 11, 'Fideos tirabuzon, 200
+2, '-', 55, 'Suplementos vitaminicos', 22
+3, '-', 11, 'Fideos tirabuzon', 200
 4, '-', 44, leche, 101
 5, '-', 200, 'Discos de arjona', 1000
 6, '-', 10, 'figuritas del mundial', 0
