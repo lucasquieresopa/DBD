@@ -3,3 +3,21 @@
 
 2.
 π nombre, apellido, dni, telefono, direccion ((σ dni > 22222222 (Cliente)) ⨝ (σ total ≤ 100000 (Factura)))
+
+3.
+π nombre, apellido, dni, telefono, direccion (Cliente ⨝ (σ fecha ≥ date('2020-01-01') ∧ fecha ≤ date('2020-12-31') (Factura)))
+
+4.
+π nombre, apellido, dni, telefono, direccion ((π idCliente, nombre, apellido, dni, telefono, direccion (Cliente ⨝ Factura)) - (π idCliente, nombre, apellido, dni, telefono, direccion (Cliente ⨝ (σ fecha ≥ date('2020-01-01') ∧ fecha ≤ date('2020-12-31') (Factura)))))
+
+5.
+π nombre, apellido, dni, telefono, direccion (Cliente - (((π idCliente (Cliente ⨝ Factura)) - (π idCliente (Cliente ⨝ (σ fecha ≥ date('2020-01-01') ∧ fecha ≤ date('2020-12-31') (Factura))))) ⨝ Cliente))
+
+6.
+π nombreP, descripcion, precio, stock (Producto - (π idProducto, descripcion, precio, nombreP, stock (Producto ⨝ Detalle)))
+
+7.
+π nombre, apellido, dni, telefono, direccion ((π idCliente, nombre, apellido, direccion, dni, telefono (Cliente ⨝ Factura ⨝ Detalle ⨝ Producto)) - (π idCliente, nombre, apellido, direccion, dni, telefono (Cliente ⨝ (σ fecha ≥ date('2020-01-01') ∧ fecha ≤ date('2020-12-31') (Factura)) ⨝ Detalle ⨝ (σ nombreP = 'Maceta' (Producto)))))
+
+8.
+π nombre, apellido, dni, telefono, direccion ((π idCliente, nombre, apellido, direccion, dni, telefono (Cliente ⨝ Factura ⨝ Detalle ⨝ (σ nombreP = 'Fideos tirabuzon' (Producto)))) - (π idCliente, nombre, apellido, direccion, dni, telefono (Cliente ⨝ Factura ⨝ Detalle ⨝ (σ nombreP = 'Suplementos vitaminicos' (Producto)))))
