@@ -1,0 +1,48 @@
+1.
+SELECT nombre, apellido, telefono, direccion, dni
+FROM cliente
+WHERE nombre LIKE "Pe%"
+ORDER BY dni DESC
+
+2.
+SELECT c.nombre, c.apellido, c.dni, c.telefono, c.direccion
+FROM Cliente c INNER JOIN factura f ON (c.idCliente = f.idCliente)
+WHERE (f.fecha BETWEEN '2017-01-01' and '2017-12-31')
+EXCEPT
+SELECT c.nombre, c.apellido, c.dni, c.telefono, c.direccion
+FROM cliente c INNER JOIN factura f ON (c.idCliente = f.idCliente)
+WHERE (f.fecha < '2017-01-01' OR f.fecha > '2017-12-31')
+
+//Del producto natural entre cliente y factura toma los campos nombre, apellido, dni, telefono y direccion de las filas cuya fecha esté entre el inicio y fin de 2017 (primer bloque). Luego le resta (except) las filas (producidas por el producto natural entre cliente y factura en el que se toma los campos nombre, apellido, dni, telefono y direccion) cuya fecha no está entre el inicio y fin de 2017.
+
+3.
+SELECT p.nombreP, p.descripcion, p.precio, p.stock
+FROM cliente c INNER JOIN factura f ON (c.idCliente = f.idCliente)
+INNER JOIN detalle d ON (f.nroTicket = d.nroTicket)
+INNER JOIN producto p ON (d.idProducto = p.idProducto)
+WHERE (c.dni = '45789456')
+EXCEPT
+SELECT p.nombreP, p.descripcion, p.precio, p.stock
+FROM cliente c INNER JOIN factura f ON (c.idCliente = f.idCliente)INNER JOIN detalle d ON (f.nroTicket = d.nroTicket)
+INNER JOIN producto p ON (d.idProducto = p.idProducto)
+WHERE (c.apellido = 'Garcia')
+
+4.
+SELECT p.nombreP, p.descripcion, p.precio, p.stock
+FROM Producto p
+WHERE p.idProducto NOT IN (
+SELECT p.idProducto
+FROM cliente c 
+INNER JOIN factura f ON (c.idCliente = f.idCliente) 
+INNER JOIN detalle d ON (f.nroTicket = d.nroTicket) 
+INNER JOIN producto p ON (d.idProducto = p.idProducto)
+WHERE (c.telefono LIKE '221%')
+)
+ORDER BY p.nombreP, p.idProducto
+
+5.
+SELECT p.nombreP, p.descripcion, p.precio, SUM(d.cantidad) as ventas
+FROM detalle d RIGHT JOIN producto p ON (d.idProducto = p.idProducto)
+GROUP BY p.idProducto, p.nombreP, p.descripcion, p.precio
+
+//RIGHT JOIN para considerar productos que no esten en ningun detalle (no vendidos)
