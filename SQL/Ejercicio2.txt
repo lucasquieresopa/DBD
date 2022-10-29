@@ -1,0 +1,86 @@
+1.
+SELECT a.Razon_Social, a.Direccion, a.Telef
+FROM agencia a 
+INNER JOIN viaje v ON (a.Razon_Social = v.Razon_Social)
+INNER JOIN cliente c ON (v.DNI = c.DNI)
+WHERE c.Apellido = 'Roma' 
+INTERSECT
+SELECT a.Razon_Social, a.Direccion, a.Telef
+FROM agencia a 
+INNER JOIN viaje v ON (a.Razon_Social = v.Razon_Social)
+INNER JOIN ciudad co ON (v.cp_Origen = co.Codigo_Postal)
+WHERE co.Nombre_Ciudad = 'La Plata'
+ORDER BY Razon_Social, Telef
+
+
+2.
+SELECT v.Hora, v.Fecha, c.DNI, c.Nombre, c.Apellido, c.Telefono, c.Direccion, co.nombre_Ciudad, cd.nombre_Ciudad
+FROM cliente c 
+INNER JOIN viaje v ON (c.DNI = v.DNI)
+INNER JOIN ciudad co ON (v.cp_Origen = co.Codigo_Postal)
+INNER JOIN ciudad cd ON (v.cp_Destino = cd.Codigo_Postal)
+WHERE (v.Fecha BETWEEN '2019-01-01' AND '2019-12-31') AND v.Descripcion LIKE '% demorado %'
+
+3.
+SELECT a.Razon_Social, Telef, Email, Direccion
+FROM agencia a 
+INNER JOIN viaje v ON (a.Razon_Social = v.Razon_Social)
+WHERE v.Fecha BETWEEN '2019-01-01' AND '2019-12-31'
+UNION (
+    SELECT Razon_Social, Telef, Email, Direccion
+    FROM agencia
+    WHERE Email LIKE '%@jmail.com'
+    )
+
+//Version 2
+SELECT a.Razon_Social, Telef, Email, Direccion
+FROM agencia a 
+INNER JOIN viaje v ON (a.Razon_Social = v.Razon_Social)
+WHERE v.Fecha BETWEEN '2019-01-01' AND '2019-12-31' OR a.Email LIKE '%@jmail.com'
+
+
+4.
+SELECT c.DNI, c.Nombre, c.Apellido, c.Telefono, c.Direccion
+FROM cliente c 
+INNER JOIN viaje v ON(c.DNI = v.DNI)
+INNER JOIN ciudad cd ON (v.cp_Destino = cd.Codigo_Postal)
+WHERE cd.Nombre_Ciudad = 'Coronel Brandsen' AND c.DNI NOT IN 
+(
+    SELECT c.DNI
+    FROM cliente c 
+    INNER JOIN viaje v ON(c.DNI = v.DNI)
+    INNER JOIN ciudad cd ON (v.cp_Destino = cd.Codigo_Postal)
+    WHERE cd.Nombre_Ciudad <> 'Coronel Brandsen'
+    )
+
+5.
+SELECT COUNT(*) as viajes
+FROM agencia a 
+INNER JOIN viaje v ON(a.Razon_Social = v.Razon_Social)
+INNER JOIN ciudad cd ON(v.cp_Destino = cd.Codigo_Postal)
+WHERE a.Razon_Social = 'AgenciaB' AND cd.Nombre_Ciudad = 'Villa Elisa'
+
+6.
+
+
+7.
+UPDATE cliente SET Telefono = '2214400897'
+WHERE DNI = '38495444'
+
+
+8.
+SELECT a.Razon_Social, a.Direccion, a.Telef
+FROM agencia a INNER JOIN viaje v ON (a.Razon_Social = v.Razon_Social)
+GROUP BY v.Razon_Social, a.Direccion, a.Telef
+HAVING COUNT(*) >= ALL (
+    SELECT COUNT(*)
+    FROM viaje v
+    GROUP BY v.Razon_Social
+)
+
+
+9.
+SELECT c.nombre, c.apellido, c.telefono
+FROM CLIENTE c INNER JOIN VIAJE v ON (c.DNI = v.DNI)
+GROUP BY c.DNI, c.Telefono
+HAVING COUNT(*) >= 2
